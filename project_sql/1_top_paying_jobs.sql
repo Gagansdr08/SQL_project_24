@@ -7,8 +7,8 @@ SELECT job_id,
     name AS company_name
 FROM job_postings_fact
     LEFT JOIN company_dim ON job_postings_fact.company_id = company_dim.company_id
-WHERE job_title_short = 'Data Analyst'
-    AND job_location = 'India'
+WHERE job_title_short <> 'Data Analyst'
+    AND job_location <> 'India'
     AND salary_year_avg is not NULL
 ORDER BY salary_year_avg DESC
 LIMIT 10
